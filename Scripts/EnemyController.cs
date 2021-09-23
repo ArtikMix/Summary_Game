@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = 5f;
+        agent.speed = 0.5f;
         agent.stoppingDistance = 0.2f;
     }
 
@@ -20,8 +20,8 @@ public class EnemyController : MonoBehaviour
     {
         if (city)
         {
-            //agent.SetDestination(target.position);//ошибка
-            //agent.Move(target.position);//ошибка
+            //agent.SetDestination(target.position);
+            agent.Move(target.position);
         }
     }
 
