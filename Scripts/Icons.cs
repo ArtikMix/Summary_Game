@@ -25,5 +25,12 @@ public class Icons : MonoBehaviour
             if (transform.name == "LinkedIn")
                 Application.OpenURL("https://www.linkedin.com/in/artsemi-katkovski-48ba81210/");
         }
+        if (other.tag == "Bullet")
+        {
+            if (transform.name == "PlayMarket")
+            {
+                Application.OpenURL("playmarket link");//вставить ссылку на плеймаркет
+            }
+        }
     }
 }
