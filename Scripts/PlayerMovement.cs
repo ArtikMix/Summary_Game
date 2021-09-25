@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal") * 6f * Time.deltaTime;
         //transform.Rotate(0, horizontal, 0);
-        transform.position = new Vector3(transform.position.x, 6.63f, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, 6.63f, transform.position.z);
         float vertical = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.Translate(horizontal, 0, vertical);
         AnimationCheck(horizontal, vertical);
