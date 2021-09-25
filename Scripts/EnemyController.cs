@@ -9,20 +9,31 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Transform target;
     private bool city = true;
     [SerializeField] private GameObject git, linked, death_GX;
+    private Animator animator;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 0.5f;
         agent.stoppingDistance = 0.2f;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         if (city)
         {
-            //agent.SetDestination(target.position);
-            agent.destination = target.position;
-            agent.Move(target.position);
+            if (Vector3.Distance(transform.position, target.position) > 1f)
+            {
+                agent.SetDestination(target.position);
+                animator.SetBool("attack", false);
+                animator.SetBool("walk", true);
+            }
+            else /*if (Vector3.Distance(transform.position, target.position) <= 1f)*/
+            {
+                Debug.Log("attack anim");
+                animator.SetBool("walk", false);
+                animator.SetBool("attack", true);
+            }
         }
     }
 
@@ -39,8 +50,14 @@ public class EnemyController : MonoBehaviour
         Instantiate(death_GX, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.5f);
         if (transform.name == "Enemy_Git")
+        {
             Instantiate(git, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
         if (transform.name == "Enemy_Linked")
+        {
             Instantiate(linked, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }

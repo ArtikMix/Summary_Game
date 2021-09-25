@@ -20,7 +20,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Rigidbody body = GetComponent<Rigidbody>();
-        body.freezeRotation = true;
+        //body.freezeRotation = true;
     }
     void Update()
     {
