@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
         if (city)
         {
             //agent.SetDestination(target.position);
+            agent.destination = target.position;
             agent.Move(target.position);
         }
     }
