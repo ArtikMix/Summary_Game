@@ -15,6 +15,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private float sensitivityVert = 9.0f;
     [SerializeField] private float minimumVert = -45.0f;
     [SerializeField] private float maximumVert = 45.0f;
+    [SerializeField] private Camera _camera;
     private float _rotationX = 0;
     void Start()
     {
@@ -40,7 +41,8 @@ public class MouseLook : MonoBehaviour
             _rotationX = Mathf.Clamp(_rotationX, minimumVert, maximumVert);
             float delta = Input.GetAxis("Mouse X") * sensitivityHor;
             float rotationY = transform.localEulerAngles.y + delta;
-            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
+            transform.localEulerAngles = new Vector3(0, rotationY, 0);
+            _camera.transform.localEulerAngles = new Vector3(_rotationX, 0f, 0f);
         }
     }
 }
