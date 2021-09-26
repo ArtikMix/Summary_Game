@@ -10,8 +10,11 @@ public class EnemyController : MonoBehaviour
     private bool city = true;
     [SerializeField] private GameObject git, linked, death_GX;
     private Animator animator;
+    PlayerChar player;
+    private bool once = true;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerChar>();
         agent = GetComponent<NavMeshAgent>();
         agent.speed = 0.5f;
         agent.stoppingDistance = 0.2f;
@@ -22,17 +25,22 @@ public class EnemyController : MonoBehaviour
     {
         if (city)
         {
-            if (Vector3.Distance(transform.position, target.position) > 1f)
+            if (Vector3.Distance(transform.position, target.position) > 2f)
             {
                 agent.SetDestination(target.position);
                 animator.SetBool("attack", false);
                 animator.SetBool("walk", true);
             }
-            else /*if (Vector3.Distance(transform.position, target.position) <= 1f)*/
+            if (Vector3.Distance(transform.position, target.position) <= 2f)
             {
-                Debug.Log("attack anim");
-                animator.SetBool("walk", false);
-                animator.SetBool("attack", true);
+                if (once)
+                {
+                    once = false;
+                    StartCoroutine(Attack());
+                    Debug.Log("attack anim");
+                    animator.SetBool("walk", false);
+                    animator.SetBool("attack", true);
+                }
             }
         }
     }
@@ -45,13 +53,21 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    IEnumerator Attack()
+    {
+        player.SetHealth(-50f);
+        yield return new WaitForSeconds(1.5f);
+        once = true;
+    }
+
     IEnumerator Death()
     {
         Instantiate(death_GX, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.5f);
         if (transform.name == "Enemy_Git")
         {
-            Instantiate(git, transform.position, transform.rotation);
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+            Instantiate(git, pos, transform.rotation);
             Destroy(gameObject);
         }
         if (transform.name == "Enemy_Linked")

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float speed = 10f;
+    private float speed = 3.2f;
     //private float turning = 60f;
     [SerializeField] Animator animator;
     void Start()

@@ -20,9 +20,9 @@ public class Icons : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (transform.name == "GitHub")
+            if (transform.name == "GitHub(Clone)")
                 Application.OpenURL("https://github.com/ArtikMix");
-            if (transform.name == "LinkedIn")
+            if (transform.name == "LinkedIn(Clone)")
                 Application.OpenURL("https://www.linkedin.com/in/artsemi-katkovski-48ba81210/");
         }
         if (other.tag == "Bullet")
