@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("idle", false);
             animator.SetBool("left", false);
             animator.SetBool("right", false);
+            animator.SetBool("shoot", false);
             animator.SetBool("walking", true);
         }
         else if (ver == 0 && hor == 0)
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("walking", false);
             animator.SetBool("left", false);
             animator.SetBool("right", false);
+            animator.SetBool("shoot", false);
             animator.SetBool("idle", true);
         }
         if (hor < 0)
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("walking", false);
             animator.SetBool("right", false);
             animator.SetBool("idle", false);
+            animator.SetBool("shoot", false);
             animator.SetBool("left", true);
         }
         if (hor > 0)
@@ -51,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("walking", false);
             animator.SetBool("left", false);
             animator.SetBool("idle", false);
+            animator.SetBool("shoot", false);
             animator.SetBool("right", true);
         }
         if (hor == 0 && ver == 0)
@@ -58,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("left", false);
             animator.SetBool("right", false);
             animator.SetBool("walking", false);
+            animator.SetBool("shoot", false);
             animator.SetBool("idle", true);
         }
     }

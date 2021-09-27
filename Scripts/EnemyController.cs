@@ -72,7 +72,8 @@ public class EnemyController : MonoBehaviour
         }
         if (transform.name == "Enemy_Linked")
         {
-            Instantiate(linked, transform.position, transform.rotation);
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z);
+            Instantiate(linked, pos, transform.rotation);
             Destroy(gameObject);
         }
     }

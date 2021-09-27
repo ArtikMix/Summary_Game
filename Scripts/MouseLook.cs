@@ -16,6 +16,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] private float minimumVert = -45.0f;
     [SerializeField] private float maximumVert = 45.0f;
     [SerializeField] private Camera _camera;
+    [SerializeField] private GameObject[] hand;
     private float _rotationX = 0;
     void Start()
     {
@@ -43,6 +44,10 @@ public class MouseLook : MonoBehaviour
             float rotationY = transform.localEulerAngles.y + delta;
             transform.localEulerAngles = new Vector3(0, rotationY, 0);
             _camera.transform.localEulerAngles = new Vector3(_rotationX, 0f, 0f);
+            foreach(GameObject g in hand)
+            {
+                g.transform.localEulerAngles = new Vector3(_rotationX, 0f, 0f);
+            }
         }
     }
 }

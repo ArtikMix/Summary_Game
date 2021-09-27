@@ -8,6 +8,7 @@ public class PlayerChar : MonoBehaviour
     private float health = 100f;
     [SerializeField] private GameObject lose;
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject[] gfx;
 
     private void Start()
     {
@@ -18,13 +19,18 @@ public class PlayerChar : MonoBehaviour
     {
         health += hp;
         if (health > 100)
+        {
             health = 100;
+            slider.value = health;
+            return health;
+        }
         if (health <= 0)
         {
             health = 0;
+            slider.value = health;
             Death();
+            return health;
         }
-        slider.value = health;
         return health;
     }
 
@@ -32,9 +38,9 @@ public class PlayerChar : MonoBehaviour
     {
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<MouseLook>().enabled = false;
-        foreach(GameObject child in transform)
+        foreach(GameObject g in gfx)
         {
-            child.SetActive(false);
+            g.SetActive(false);
         }
         lose.SetActive(true);
     }
