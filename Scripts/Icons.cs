@@ -12,13 +12,13 @@ public class Icons : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.position)>=5f)
+        if (Vector3.Distance(transform.position, target.position)>=5f && transform.name!="PlayMarket")
             transform.LookAt(target);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Bullet")
         {
             if (transform.name == "GitHub(Clone)")
                 Application.OpenURL("https://github.com/ArtikMix");
@@ -29,7 +29,7 @@ public class Icons : MonoBehaviour
         {
             if (transform.name == "PlayMarket")
             {
-                Application.OpenURL("playmarket link");//вставить ссылку на плеймаркет
+                Application.OpenURL("https://play.google.com/store/search?q=NotSeriousGames");//вставить ссылку на плеймаркет
             }
         }
     }

@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Attack()
     {
-        player.SetHealth(-50f);
+        player.SetHealth(-25f);
         yield return new WaitForSeconds(1.5f);
         once = true;
     }

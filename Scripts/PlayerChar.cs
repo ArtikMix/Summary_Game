@@ -31,6 +31,7 @@ public class PlayerChar : MonoBehaviour
             Death();
             return health;
         }
+        slider.value = health;
         return health;
     }
 
