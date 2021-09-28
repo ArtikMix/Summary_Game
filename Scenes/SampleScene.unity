@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 24017292}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Player
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5931,6 +5931,7 @@ GameObject:
   - component: {fileID: 1814129587}
   - component: {fileID: 1814129586}
   - component: {fileID: 1814129585}
+  - component: {fileID: 1814129589}
   m_Layer: 0
   m_Name: Zaslonka
   m_TagString: Untagged
@@ -5946,8 +5947,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814129584}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6014,6 +6015,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814129589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814129584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac4936d142f8ad4880f80268c645cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  human: {fileID: 8356104787189211416}
+  car: {fileID: 1005752820}
 --- !u!1 &1843783876
 GameObject:
   m_ObjectHideFlags: 0
